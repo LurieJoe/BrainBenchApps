@@ -291,6 +291,23 @@
   .next-box p { max-width: 62ch; margin: 14px 0 0; color: var(--ink); }
   .next-box p.muted { color: var(--ink-soft); font-size: 0.93rem; }
 
+  /* ---- about ---- */
+  .about { border-top: 1px solid var(--rule); background: var(--surface); }
+  .about .wrap { padding-block: 48px 56px; }
+  .about h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+    letter-spacing: -0.015em;
+    margin: 10px 0 0;
+  }
+  .about p {
+    max-width: 66ch;
+    margin: 18px 0 0;
+    color: var(--ink-soft);
+  }
+  .about p.opening { color: var(--ink); }
+
   /* ---- footer ---- */
   .site-foot { border-top: 1px solid var(--rule); background: var(--surface); }
   .site-foot .wrap {
@@ -319,6 +336,7 @@
       <a href="#apps">Apps</a>
       <a href="#approach">How they work</a>
       <a href="#next">What's next</a>
+      <a href="#about">About</a>
     </nav>
   </div>
 </header>
@@ -446,6 +464,15 @@
         <p>Mapdle is being prepared for release as its own iOS app, with web play staying on Geography Gym. The other apps are headed for the Apple and Android app stores as well, and new ones join the lineup as they're built.</p>
         <p class="muted">Have an idea for one? Each app's feedback link reaches the same desk.</p>
       </div>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h2>How Brain Bench Apps started</h2>
+      <p class="opening">Brain Bench Apps started with a stack of index cards. My wife was studying U.S. civics, and I was sure there had to be a better way to review flashcards than carrying them around. So I built Flashcard Flurry, so she could study from anywhere, offline, even in bed.</p>
+      <p>After that, inspiration turned up everywhere. In an office somewhere I saw an analog clock with equations printed where the numbers should be. Good idea, with one flaw: printed equations get solved once, and after that you're just reading a clock. So Analog Math Clock changes them — a new set whenever you want, at the difficulty you pick. Then came Geography Gym, a collection of quick games covering U.S. states and capitals, world cities, countries, landmarks, waterways, mountains, and national parks.</p>
+      <p>Geography Gym led to Mapdle, a daily challenge that brings players back each day to earn badges and share their results with friends and family. What began as one app for one person studying at the kitchen table has grown into a collection of games and learning tools that keeps picking up new features, categories, and ideas.</p>
     </div>
   </section>
 </main>
