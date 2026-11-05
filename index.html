@@ -367,7 +367,69 @@
 
   /* ---- about ---- */
   .about { border-top: 1px solid var(--rule); background: var(--paper); }
-  .about .wrap { padding-block: 48px 56px; }
+  .about .wrap {
+    padding-block: 48px 56px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.9fr);
+    gap: 36px 48px;
+    align-items: start;
+  }
+  .about .story { min-width: 0; }
+  .creator {
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 22px 20px;
+  }
+  .creator img {
+    width: 100%;
+    max-width: 190px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+  .creator h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    margin: 16px 0 0;
+  }
+  .creator p.role {
+    margin: 6px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    max-width: none;
+  }
+  .creator ul {
+    margin: 16px 0 0;
+    padding: 16px 0 0;
+    border-top: 1px solid var(--rule);
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .creator ul a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 14px;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+  .creator ul a:hover { color: var(--accent); border-color: var(--accent); }
+  @media (max-width: 760px) {
+    .about .wrap { grid-template-columns: 1fr; }
+    .creator { max-width: 420px; }
+  }
   .about h2 {
     font-family: var(--display);
     font-weight: 700;
@@ -546,12 +608,24 @@
 
   <section class="about" id="about">
     <div class="wrap">
+      <div class="story">
       <p class="eyebrow">About</p>
       <h2>How Brain Bench Apps started</h2>
       <p class="opening">Brain Bench Apps started with a stack of index cards. My wife was studying U.S. civics, and I was sure there had to be a better way to review flashcards than carrying them around. So I built Flashcard Flurry, so she could study from anywhere, offline, even in bed.</p>
       <p>After that, inspiration turned up everywhere. In an office somewhere I saw an analog clock with equations printed where the numbers should be. Good idea, with one flaw: printed equations get solved once, and after that you're just reading a clock. So Analog Math Clock changes them — a new set whenever you want, at the difficulty you pick. Then came Geography Gym, a collection of quick games covering U.S. states and capitals, world cities, countries, landmarks, waterways, mountains, and national parks.</p>
       <p>Geography Gym led to Mapdle, a daily challenge that brings players back each day to earn badges and share their results with friends and family. What began as one app for one person studying at the kitchen table keeps picking up new games, categories, and ideas.</p>
       <p class="signoff">— Joe</p>
+      </div>
+
+      <aside class="creator">
+        <img src="joe.jpg" alt="Joe at his desk, rendered in claymation, with Mapdle open on the monitor">
+        <h3>Joe Lurie</h3>
+        <p class="role">Founder and builder of Brain Bench Apps</p>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/joelurie/">LinkedIn</a></li>
+          <li><a href="https://x.com/LURIE_MRJOSEPH">X</a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
