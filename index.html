@@ -415,17 +415,23 @@
   .creator ul a {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-family: var(--mono);
-    font-size: 0.76rem;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
     color: var(--ink-soft);
-    text-decoration: none;
     border: 1px solid var(--rule);
     border-radius: 999px;
-    padding: 6px 14px;
     transition: border-color 0.18s ease, color 0.18s ease;
   }
   .creator ul a:hover { color: var(--accent); border-color: var(--accent); }
+  .creator .icon {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    background: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+  }
   @media (max-width: 760px) {
     .about .wrap { grid-template-columns: 1fr; }
     .creator { max-width: 420px; }
@@ -622,8 +628,8 @@
         <h3>Joe Lurie</h3>
         <p class="role">Founder and builder of Brain Bench Apps</p>
         <ul>
-          <li><a href="https://www.linkedin.com/in/joelurie/">LinkedIn</a></li>
-          <li><a href="https://x.com/LURIE_MRJOSEPH">X</a></li>
+          <li><a href="https://www.linkedin.com/in/joelurie/" aria-label="Joe Lurie on LinkedIn"><span class="icon" style="--icon: url('InBug-Black.png')"></span></a></li>
+          <li><a href="https://x.com/LURIE_MRJOSEPH" aria-label="Joe Lurie on X"><span class="icon" style="--icon: url('x.svg')"></span></a></li>
         </ul>
       </aside>
     </div>
