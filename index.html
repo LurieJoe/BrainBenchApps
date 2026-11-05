@@ -174,6 +174,80 @@
   }
   .section-head p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
 
+  /* flagship: Mapdle gets its own block above the three app cards */
+  .feature {
+    --tint: var(--mapdle);
+    margin-top: 26px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--tint);
+    border-radius: 6px;
+    padding: 26px 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 24px 36px;
+    align-items: start;
+  }
+  .feature .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tint);
+    border: 1px solid var(--tint);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .feature h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.4vw, 2rem);
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    margin: 14px 0 0;
+  }
+  .feature .tagline { margin: 10px 0 0; font-weight: 500; font-size: 1.05rem; }
+  .feature .blurb { margin: 12px 0 0; color: var(--ink-soft); max-width: 58ch; }
+  .feature .host { font-family: var(--mono); font-size: 0.74rem; color: var(--ink-soft); margin: 12px 0 0; }
+  .feature .play {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 11px 20px;
+    border-radius: 6px;
+    background: var(--tint);
+    color: var(--paper);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.18s ease;
+  }
+  .feature .play:hover { transform: translateY(-1px); }
+  .feature ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 9px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .feature ul li { display: flex; gap: 9px; min-width: 0; }
+  .feature ul li::before { content: "—"; color: var(--tint); flex: none; }
+  .feature .side-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+  @media (max-width: 720px) {
+    .feature { grid-template-columns: 1fr; }
+  }
+
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
@@ -352,9 +426,10 @@
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow">Independent app studio · Since 2026</p>
-      <h1>Three small apps that give your brain a workout.</h1>
+      <h1>Learn, practice, play. Give your brain a workout.</h1>
       <p class="lead">Brain Bench Apps makes free web apps you can add to your home screen and keep using offline — <strong>flashcards you build yourself</strong>, <strong>geography games with a daily puzzle</strong>, and <strong>a clock that makes you do the math</strong>. No accounts, no ads, and your cards, scores, and settings stay on your device.</p>
       <ul class="jump">
+        <li><a href="#mapdle"><span class="swatch" style="background: var(--mapdle)"></span>Mapdle</a></li>
         <li><a href="#flashcard-flurry"><span class="swatch" style="background: var(--ff)"></span>Flashcard Flurry</a></li>
         <li><a href="#geography-gym"><span class="swatch" style="background: var(--gg)"></span>Geography Gym</a></li>
         <li><a href="#analog-math-clock"><span class="swatch" style="background: var(--amc)"></span>Analog Math Clock</a></li>
@@ -369,6 +444,27 @@
       <div class="section-head">
         <h2>Learning exercises</h2>
         <p>All of them are free, and all of them run in your browser.</p>
+      </div>
+
+      <div class="feature" id="mapdle">
+        <div>
+          <span class="badge">Daily exercise</span>
+          <h3>Mapdle</h3>
+          <p class="tagline">One hidden place. Five pins.</p>
+          <p class="blurb">A new location every day. Drop up to five pins and each one is scored by how close you got, with the colors telling you how warm you are. After the reveal, a pop-up gives you a fact about the place, its coordinates, and somewhere to read more.</p>
+          <p class="host">Play it at geographygym.com/mapdle</p>
+          <a class="play" href="https://geographygym.com/mapdle/">Play today's Mapdle <span aria-hidden="true">→</span></a>
+        </div>
+        <div>
+          <p class="side-label">What you get</p>
+          <ul>
+            <li>A fresh puzzle every day</li>
+            <li>Scored by distance</li>
+            <li>Streaks and milestone badges</li>
+            <li>Share your results</li>
+            <li>Places, parks, and waterways</li>
+          </ul>
+        </div>
       </div>
 
       <ul class="card-grid">
@@ -398,21 +494,6 @@
             <li>Study lists and quizzes</li>
           </ul>
           <a class="open" href="https://geographygym.com/">Open Geography Gym <span class="arrow" aria-hidden="true">→</span></a>
-        </li>
-
-        <li class="card" id="mapdle" style="--tint: var(--mapdle)">
-          <span class="badge">Daily exercise</span>
-          <h3>Mapdle</h3>
-          <p class="host">geographygym.com/mapdle</p>
-          <p class="tagline">One hidden place. Five pins.</p>
-          <p class="blurb">A new location every day. Drop up to five pins and each one is scored by how close you got, with the colors telling you how warm you are. After the reveal, a pop-up gives you a fact about the place, its coordinates, and somewhere to read more.</p>
-          <ul>
-            <li>A fresh puzzle every day</li>
-            <li>Scored by distance</li>
-            <li>Streaks and milestone badges</li>
-            <li>Share your results</li>
-          </ul>
-          <a class="open" href="https://geographygym.com/mapdle/">Open Mapdle <span class="arrow" aria-hidden="true">→</span></a>
         </li>
 
         <li class="card" id="analog-math-clock" style="--tint: var(--amc)">
