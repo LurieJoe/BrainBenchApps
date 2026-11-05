@@ -432,6 +432,10 @@
     -webkit-mask: var(--icon) center / contain no-repeat;
     mask: var(--icon) center / contain no-repeat;
   }
+  @media (min-width: 761px) {
+    /* drop the card to the first line of body text, clear of the eyebrow and heading */
+    .creator { margin-top: 96px; }
+  }
   @media (max-width: 760px) {
     .about .wrap { grid-template-columns: 1fr; }
     .creator { max-width: 420px; }
