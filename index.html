@@ -14,6 +14,7 @@
     --accent-soft: #e6e4fb;
     --ff: #0f7a57;
     --gg: #4338ca;
+    --mapdle: #b0325c;
     --amc: #9c6a16;
 
     --display: 'Archivo', 'Helvetica Neue', system-ui, sans-serif;
@@ -32,6 +33,7 @@
       --accent-soft: #221d4e;
       --ff: #4ec49a;
       --gg: #a9a4ff;
+      --mapdle: #f287a7;
       --amc: #e0a84a;
       color-scheme: dark;
     }
@@ -47,6 +49,7 @@
     --accent-soft: #221d4e;
     --ff: #4ec49a;
     --gg: #a9a4ff;
+    --mapdle: #f287a7;
     --amc: #e0a84a;
     color-scheme: dark;
   }
@@ -239,6 +242,17 @@
     color: var(--ink-soft);
     margin: 0;
   }
+  .card .badge {
+    align-self: flex-start;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tint);
+    border: 1px solid var(--tint);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
 
   /* ---- approach ---- */
   .approach { margin-top: 56px; border-top: 1px solid var(--rule); background: var(--surface); }
@@ -328,8 +342,8 @@
   <section class="apps" id="apps">
     <div class="wrap">
       <div class="section-head">
-        <h2>On the bench</h2>
-        <p>All three are free, and all three run in your browser.</p>
+        <h2>Learning exercises</h2>
+        <p>All of them are free, and all of them run in your browser.</p>
       </div>
 
       <ul class="card-grid">
@@ -351,14 +365,29 @@
           <h3>Geography Gym</h3>
           <p class="host">geographygym.com</p>
           <p class="tagline">Give your world knowledge a workout.</p>
-          <p class="blurb">Quick games that build real geographic intuition: states and capitals, countries, landmarks, waterways, national parks, and mountains. It's also the home of Mapdle, a daily guessing game where five pins close in on one hidden place.</p>
+          <p class="blurb">Quick games that build real geographic intuition: states and capitals, countries, landmarks, waterways, national parks, and mountains. Pick the subjects you want to work on and drill just those.</p>
           <ul>
-            <li>A new Mapdle every day</li>
-            <li>Streaks and milestone badges</li>
-            <li>Pick the subjects you study</li>
-            <li>Share your results</li>
+            <li>U.S. states and world countries</li>
+            <li>Landmarks, waterways, and parks</li>
+            <li>Mountains and volcanoes</li>
+            <li>Study lists and quizzes</li>
           </ul>
           <a class="open" href="https://geographygym.com/">Open Geography Gym <span class="arrow" aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="card" id="mapdle" style="--tint: var(--mapdle)">
+          <span class="badge">Daily exercise</span>
+          <h3>Mapdle</h3>
+          <p class="host">geographygym.com/mapdle</p>
+          <p class="tagline">One hidden place. Five pins.</p>
+          <p class="blurb">A new location every day. Drop up to five pins and each one is scored by how close you got, with the colors telling you how warm you are. After the reveal, a pop-up gives you a fact about the place, its coordinates, and somewhere to read more.</p>
+          <ul>
+            <li>A fresh puzzle every day</li>
+            <li>Scored by distance</li>
+            <li>Streaks and milestone badges</li>
+            <li>Share your results</li>
+          </ul>
+          <a class="open" href="https://geographygym.com/mapdle/">Open Mapdle <span class="arrow" aria-hidden="true">→</span></a>
         </li>
 
         <li class="card" id="analog-math-clock" style="--tint: var(--amc)">
@@ -413,7 +442,7 @@
     <div class="wrap">
       <div class="next-box">
         <p class="eyebrow">What's next</p>
-        <h2>More seats on the bench</h2>
+        <h2>More to come</h2>
         <p>Mapdle is being prepared for release as its own iOS app, with web play staying on Geography Gym. The other apps are headed for the Apple and Android app stores as well, and new ones join the lineup as they're built.</p>
         <p class="muted">Have an idea for one? Each app's feedback link reaches the same desk.</p>
       </div>
