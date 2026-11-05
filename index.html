@@ -1,0 +1,433 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Brain Bench Apps</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: full-width bands over one 1060px column; a ruled "bench" line carries the three apps on a shared baseline */
+  :root {
+    --paper: #eef0f5;
+    --surface: #ffffff;
+    --ink: #11172b;
+    --ink-soft: #4b5468;
+    --rule: #c3cada;
+    --accent: #4338ca;
+    --accent-soft: #e6e4fb;
+    --ff: #0f7a57;
+    --gg: #4338ca;
+    --amc: #9c6a16;
+
+    --display: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
+    --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0d1120;
+      --surface: #171d2f;
+      --ink: #e9ecf5;
+      --ink-soft: #a2aabe;
+      --rule: #2f3654;
+      --accent: #a9a4ff;
+      --accent-soft: #221d4e;
+      --ff: #4ec49a;
+      --gg: #a9a4ff;
+      --amc: #e0a84a;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #0d1120;
+    --surface: #171d2f;
+    --ink: #e9ecf5;
+    --ink-soft: #a2aabe;
+    --rule: #2f3654;
+    --accent: #a9a4ff;
+    --accent-soft: #221d4e;
+    --ff: #4ec49a;
+    --gg: #a9a4ff;
+    --amc: #e0a84a;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1060px;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---- header ---- */
+  .site-head { border-bottom: 1px solid var(--rule); background: var(--surface); }
+  .site-head .wrap {
+    padding-block: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 22px;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.015em;
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .wordmark .dot { color: var(--accent); }
+  .site-nav { display: flex; gap: 20px; font-size: 0.88rem; }
+  .site-nav a { color: var(--ink-soft); text-decoration: none; }
+  .site-nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---- hero ---- */
+  .hero .wrap { padding-block: clamp(48px, 9vw, 92px) 36px; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.1rem, 6.2vw, 3.9rem);
+    line-height: 1.04;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    margin: 18px 0 0;
+    max-width: 17ch;
+  }
+  .hero p.lead {
+    font-size: clamp(1.02rem, 2.1vw, 1.16rem);
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 20px 0 0;
+  }
+  .hero p.lead strong { color: var(--ink); font-weight: 600; }
+
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .jump a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-decoration: none;
+    padding: 7px 13px 7px 11px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    transition: border-color 0.18s ease, transform 0.18s ease;
+  }
+  .jump a:hover { border-color: var(--ink-soft); transform: translateY(-1px); }
+  .swatch {
+    width: 9px; height: 9px; border-radius: 2px; flex: none;
+  }
+
+  /* ---- the bench rule: a ruler the app cards sit on ---- */
+  .bench {
+    height: 15px;
+    background:
+      linear-gradient(var(--rule), var(--rule)) 0 0 / 100% 1px no-repeat,
+      repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 14px) 0 0 / 100% 6px no-repeat;
+  }
+
+  /* ---- apps ---- */
+  .apps .wrap { padding-block: 34px 10px; }
+  .section-head { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; }
+  .section-head h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .section-head p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+    gap: 20px;
+    margin-top: 26px;
+    padding: 0;
+    list-style: none;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px 22px 22px;
+  }
+  .card h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.32rem;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 0;
+  }
+  .card h3::after {
+    content: "";
+    display: block;
+    width: 46px;
+    height: 3px;
+    margin-top: 10px;
+    background: var(--tint);
+  }
+  .card .tagline { margin: 0; font-weight: 500; }
+  .card .blurb { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+  .card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 7px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .card ul li { display: flex; gap: 9px; min-width: 0; }
+  .card ul li::before { content: "—"; color: var(--tint); flex: none; }
+  .card .open {
+    margin-top: auto;
+    padding-top: 6px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--tint);
+    text-decoration: none;
+    width: fit-content;
+  }
+  .card .open:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .card .open .arrow { font-family: var(--mono); }
+  .card .host {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---- approach ---- */
+  .approach { margin-top: 56px; border-top: 1px solid var(--rule); background: var(--surface); }
+  .approach .wrap { padding-block: 48px 52px; }
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px 36px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .notes li { min-width: 0; border-top: 1px solid var(--rule); padding-top: 14px; }
+  .notes h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.02rem;
+    margin: 0 0 6px;
+  }
+  .notes p { margin: 0; color: var(--ink-soft); font-size: 0.93rem; }
+
+  /* ---- next ---- */
+  .next .wrap { padding-block: 48px 52px; }
+  .next-box {
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: clamp(24px, 4vw, 34px);
+  }
+  .next-box h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+    letter-spacing: -0.02em;
+    margin: 12px 0 0;
+  }
+  .next-box p { max-width: 62ch; margin: 14px 0 0; color: var(--ink); }
+  .next-box p.muted { color: var(--ink-soft); font-size: 0.93rem; }
+
+  /* ---- footer ---- */
+  .site-foot { border-top: 1px solid var(--rule); background: var(--surface); }
+  .site-foot .wrap {
+    padding-block: 30px 38px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.88rem;
+  }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--mono); font-size: 0.78rem; }
+  .foot-links a { color: var(--ink-soft); text-decoration: none; }
+  .foot-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+  .site-foot .legal { color: var(--ink-soft); font-family: var(--mono); font-size: 0.75rem; margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Brain Bench Apps<span class="dot">.</span></a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#apps">Apps</a>
+      <a href="#approach">How they work</a>
+      <a href="#next">What's next</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Independent app studio · Since 2026</p>
+      <h1>Three small apps that give your brain a workout.</h1>
+      <p class="lead">Brain Bench Apps makes free web apps you can add to your home screen and keep using offline — <strong>flashcards you build yourself</strong>, <strong>geography games with a daily puzzle</strong>, and <strong>a clock that makes you do the math</strong>. No accounts, no ads, and your progress stays on your device.</p>
+      <ul class="jump">
+        <li><a href="#flashcard-flurry"><span class="swatch" style="background: var(--ff)"></span>Flashcard Flurry</a></li>
+        <li><a href="#geography-gym"><span class="swatch" style="background: var(--gg)"></span>Geography Gym</a></li>
+        <li><a href="#analog-math-clock"><span class="swatch" style="background: var(--amc)"></span>Analog Math Clock</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="bench" role="presentation"></div></div>
+
+  <section class="apps" id="apps">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>On the bench</h2>
+        <p>All three are free, and all three run in your browser.</p>
+      </div>
+
+      <ul class="card-grid">
+        <li class="card" id="flashcard-flurry" style="--tint: var(--ff)">
+          <h3>Flashcard Flurry</h3>
+          <p class="host">flashcardflurry.com</p>
+          <p class="tagline">Your cards. Your pace. Your device.</p>
+          <p class="blurb">Make cards one at a time, paste a list, or import a file — then study with classic flashcards, Matching Pairs, or Multiple Choice. It remembers the exact card and shuffle order you left off on.</p>
+          <ul>
+            <li>50+ ready-made decks</li>
+            <li>Three ways to study</li>
+            <li>Full backup and restore</li>
+            <li>No account, no cloud database</li>
+          </ul>
+          <a class="open" href="https://flashcardflurry.com/">Open Flashcard Flurry <span class="arrow" aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="card" id="geography-gym" style="--tint: var(--gg)">
+          <h3>Geography Gym</h3>
+          <p class="host">geographygym.com</p>
+          <p class="tagline">Give your world knowledge a workout.</p>
+          <p class="blurb">Quick games that build real geographic intuition: states and capitals, countries, landmarks, waterways, national parks, and mountains. It's also the home of Mapdle, a daily guessing game where five pins close in on one hidden place.</p>
+          <ul>
+            <li>A new Mapdle every day</li>
+            <li>Streaks and milestone badges</li>
+            <li>Pick the subjects you study</li>
+            <li>Share your results</li>
+          </ul>
+          <a class="open" href="https://geographygym.com/">Open Geography Gym <span class="arrow" aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="card" id="analog-math-clock" style="--tint: var(--amc)">
+          <h3>Analog Math Clock</h3>
+          <p class="host">analogmathclock.com</p>
+          <p class="tagline">Practice math every time you check the time.</p>
+          <p class="blurb">An analog clock with equations where the numerals should be — 3+1 where the four goes, √64 where the eight goes. Pick a difficulty, refresh for a new set, or send in equations of your own.</p>
+          <ul>
+            <li>Simple, advanced, and complex levels</li>
+            <li>Alarms and multiple clocks</li>
+            <li>World time zones</li>
+            <li>Binary and Maya numerals</li>
+          </ul>
+          <a class="open" href="https://analogmathclock.com/">Open Analog Math Clock <span class="arrow" aria-hidden="true">→</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="wrap">
+      <p class="eyebrow">How they work</p>
+      <div class="section-head" style="margin-top: 10px">
+        <h2>Web apps, built to feel like real apps</h2>
+      </div>
+      <ul class="notes">
+        <li>
+          <h3>Install without an app store</h3>
+          <p>In Safari on iPhone or iPad, tap Share, then Add to Home Screen. In Chrome on Android, choose Install app. The icon lands on your home screen like any other app.</p>
+        </li>
+        <li>
+          <h3>Keep working offline</h3>
+          <p>The first visit and each update need a connection. After that, the app runs from your device — on a plane, on the subway, or anywhere the signal drops.</p>
+        </li>
+        <li>
+          <h3>Nothing to sign up for</h3>
+          <p>No account, no password, and no paywall in front of the core of any app. Open the link and start.</p>
+        </li>
+        <li>
+          <h3>Feedback goes straight to the source</h3>
+          <p>Every app links to its own FAQ, support page, or feedback form, and the suggestions that come in shape what gets built next.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="next" id="next">
+    <div class="wrap">
+      <div class="next-box">
+        <p class="eyebrow">What's next</p>
+        <h2>More seats on the bench</h2>
+        <p>Mapdle is being prepared for release as its own iOS app, with web play staying on Geography Gym. The other apps are headed for the Apple and Android app stores as well, and new ones join the lineup as they're built.</p>
+        <p class="muted">Have an idea for one? Each app's feedback link reaches the same desk.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p class="legal">© 2026 Brain Bench Apps · brainbenchapps.com</p>
+    </div>
+    <div class="foot-links">
+      <a href="https://flashcardflurry.com/">Flashcard Flurry</a>
+      <a href="https://geographygym.com/">Geography Gym</a>
+      <a href="https://analogmathclock.com/">Analog Math Clock</a>
+      <a href="https://flashcardflurry.com/support/">Support</a>
+      <a href="https://flashcardflurry.com/privacy/">Privacy</a>
+    </div>
+  </div>
+</footer>
