@@ -77,8 +77,8 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.62;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -128,30 +128,48 @@
   .site-nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 
   /* ---- hero ---- */
-  .hero .wrap { padding-block: clamp(48px, 9vw, 92px) 36px; }
+  .hero .wrap {
+    padding-block: clamp(40px, 7vw, 72px) 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero .mascot {
+    width: clamp(92px, 16vw, 132px);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 24%;
+    display: block;
+  }
+  .hero .eyebrow { margin-top: 22px; }
   .hero h1 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(1.95rem, 5.2vw, 3.2rem);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.95rem, 5.2vw, 3.35rem);
+    line-height: 1.06;
+    letter-spacing: -0.022em;
     text-wrap: balance;
-    margin: 18px 0 0;
-    max-width: 20ch;
+    margin: 14px 0 0;
+    max-width: 30ch;
   }
+  .hero h1 .soft { color: var(--ink-soft); }
   .hero p.lead {
-    font-size: clamp(1.02rem, 2.1vw, 1.16rem);
+    font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+    line-height: 1.55;
     color: var(--ink-soft);
-    max-width: 60ch;
-    margin: 20px 0 0;
+    max-width: 48ch;
+    margin: 22px 0 0;
+    text-wrap: pretty;
   }
   .hero p.lead strong { color: var(--ink); font-weight: 600; }
 
   .jump {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-    margin: 30px 0 0;
+    margin: 32px 0 0;
     padding: 0;
     list-style: none;
   }
@@ -187,11 +205,11 @@
   .section-head h2 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-size: clamp(1.55rem, 3.2vw, 2.1rem);
     letter-spacing: -0.02em;
     margin: 0;
   }
-  .section-head p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+  .section-head p { margin: 0; color: var(--ink-soft); font-size: 1.03rem; }
 
   /* flagship: Mapdle gets its own block above the three app cards */
   .feature {
@@ -288,7 +306,7 @@
   .card h3 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 1.32rem;
+    font-size: 1.42rem;
     letter-spacing: -0.015em;
     line-height: 1.15;
     margin: 0;
@@ -302,7 +320,7 @@
     background: var(--tint);
   }
   .card .tagline { margin: 0; font-weight: 500; }
-  .card .blurb { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+  .card .blurb { margin: 0; color: var(--ink-soft); font-size: 1.01rem; }
   .card ul {
     margin: 0;
     padding: 0;
@@ -362,10 +380,10 @@
   .notes h3 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 1.02rem;
+    font-size: 1.1rem;
     margin: 0 0 6px;
   }
-  .notes p { margin: 0; color: var(--ink-soft); font-size: 0.93rem; }
+  .notes p { margin: 0; color: var(--ink-soft); font-size: 1.01rem; }
 
   /* ---- next ---- */
   .next .wrap { padding-block: 48px 52px; }
@@ -516,9 +534,10 @@
 <main id="top">
   <section class="hero">
     <div class="wrap">
+      <img class="mascot" src="icons/icon.svg" alt="The Brain Bench Apps octopus" width="132" height="132">
       <p class="eyebrow">Independent app studio · Since 2026</p>
-      <h1>Learn, practice, play. Give your brain a workout.</h1>
-      <p class="lead">Brain Bench Apps makes free web apps you can add to your home screen and keep using offline — <strong>flashcards you build yourself</strong>, <strong>geography games with a daily puzzle</strong>, and <strong>a clock that makes you do the math</strong>. No accounts, no ads, and your cards, scores, and settings stay on your device.</p>
+      <h1>Learn, practice, play.<br><span class="soft">Give your brain a workout.</span></h1>
+      <p class="lead">Free apps that add to your home screen and keep working offline. <strong>No accounts, no ads</strong>, and your cards, scores, and settings stay on your device.</p>
       <ul class="jump">
         <li><a href="#mapdle"><span class="swatch" style="background: var(--mapdle)"></span>Mapdle</a></li>
         <li><a href="#flashcard-flurry"><span class="swatch" style="background: var(--ff)"></span>Flashcard Flurry</a></li>
