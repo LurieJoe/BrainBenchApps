@@ -1,0 +1,291 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How Brain Bench Apps handles your data: no accounts, no ads, and your work stays on your device.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="canonical" href="https://brainbenchapps.com/privacy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brain Bench Apps">
+<meta property="og:title" content="Privacy — Brain Bench Apps">
+<meta property="og:description" content="How Brain Bench Apps handles your data: no accounts, no ads, and your work stays on your device.">
+<meta property="og:url" content="https://brainbenchapps.com/privacy/">
+<meta property="og:image" content="https://brainbenchapps.com/og/brain-bench-apps.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#4f46e5">
+<title>Privacy — Brain Bench Apps</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: single reading column, same palette and type as the home page */
+  :root {
+    --paper: #eef0f5;
+    --surface: #ffffff;
+    --ink: #11172b;
+    --ink-soft: #4b5468;
+    --rule: #c3cada;
+    --accent: #4338ca;
+    --accent-soft: #e6e4fb;
+
+    --display: 'Archivo', 'Helvetica Neue', system-ui, sans-serif;
+    --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0d1120;
+      --surface: #171d2f;
+      --ink: #e9ecf5;
+      --ink-soft: #a2aabe;
+      --rule: #2f3654;
+      --accent: #a9a4ff;
+      --accent-soft: #221d4e;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #0d1120;
+    --surface: #171d2f;
+    --ink: #e9ecf5;
+    --ink-soft: #a2aabe;
+    --rule: #2f3654;
+    --accent: #a9a4ff;
+    --accent-soft: #221d4e;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---- header ---- */
+  .site-head { border-bottom: 1px solid var(--rule); background: var(--surface); }
+  .site-head .wrap {
+    max-width: 1060px;
+    padding-block: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 22px;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.015em;
+    text-decoration: none;
+    color: var(--ink);
+    margin-right: auto;
+  }
+  .wordmark .dot { color: var(--accent); }
+  .site-nav { display: flex; gap: 20px; font-size: 0.88rem; }
+  .site-nav a { color: var(--ink-soft); text-decoration: none; }
+  .site-nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---- document ---- */
+  main .wrap { padding-block: clamp(40px, 7vw, 68px) 56px; }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 16px 0 0;
+  }
+  .updated {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin: 14px 0 0;
+  }
+  .summary {
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 20px 22px;
+    margin: 28px 0 0;
+  }
+  .summary p { margin: 0; }
+  .summary p + p { margin-top: 10px; }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.22rem;
+    letter-spacing: -0.012em;
+    margin: 40px 0 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 24px 0 0;
+  }
+  p { margin: 14px 0 0; }
+  ul { margin: 14px 0 0; padding-left: 22px; }
+  li { margin-top: 7px; }
+  li::marker { color: var(--ink-soft); }
+  strong { font-weight: 600; }
+
+  .contact {
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+  }
+  .contact .addr {
+    font-family: var(--mono);
+    font-size: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: inline-block;
+    margin-top: 14px;
+    user-select: all;
+  }
+
+  /* ---- footer ---- */
+  .site-foot { border-top: 1px solid var(--rule); background: var(--surface); }
+  .site-foot .wrap {
+    max-width: 1060px;
+    padding-block: 30px 38px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.88rem;
+  }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--mono); font-size: 0.78rem; }
+  .foot-links a { color: var(--ink-soft); text-decoration: none; }
+  .foot-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+  .site-foot .legal { color: var(--ink-soft); font-family: var(--mono); font-size: 0.75rem; margin: 0; }
+</style>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="wordmark" href="/">Brain Bench Apps<span class="dot">.</span></a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/#apps">Apps</a>
+      <a href="/#about">About</a>
+      <a href="/#next">What's next</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="eyebrow">Privacy</p>
+    <h1>What we collect, and what we don't</h1>
+    <p class="updated">Last updated November 7, 2026</p>
+
+    <div class="summary">
+      <p><strong>The short version.</strong> Brain Bench Apps has no accounts, no ads, and no sign-ups. The cards you write, the scores you earn, and the settings you choose stay in your own browser, on your own device. We never see them.</p>
+      <p>Two of the apps count page visits so we know which games people play. That counting uses no cookies and identifies nobody.</p>
+    </div>
+
+    <h2>Who this covers</h2>
+    <p>Brain Bench Apps is a one-person studio run by Joe Lurie. This page covers brainbenchapps.com and the apps published under it:</p>
+    <ul>
+      <li><a href="https://flashcardflurry.com/">Flashcard Flurry</a> — <a href="https://flashcardflurry.com/privacy/">its privacy policy</a></li>
+      <li><a href="https://geographygym.com/">Geography Gym</a> and <a href="https://geographygym.com/mapdle/">Mapdle</a>, which share <a href="https://geographygym.com/privacy/">one privacy policy</a></li>
+      <li><a href="https://analogmathclock.com/">Analog Math Clock</a> — <a href="https://analogmathclock.com/privacy/">its privacy policy</a></li>
+    </ul>
+    <p>Each app's own policy has the specifics for that app. Where the two differ, the app's own policy is the one that governs it.</p>
+
+    <h2>This website</h2>
+    <p>brainbenchapps.com is a single page with links on it. It sets no cookies, runs no analytics, and stores nothing in your browser. There is nothing to sign up for and no form to fill in.</p>
+    <p>The site is hosted on GitHub Pages. Like any web host, GitHub receives the standard information your browser sends when it requests a page — your IP address, the browser you use, and the time of the request. That handling is governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub's privacy statement</a>, not by us.</p>
+
+    <h2>Your work stays on your device</h2>
+    <p>The apps are built so that what you create belongs to you and never leaves your device unless you send it somewhere yourself. That means:</p>
+    <ul>
+      <li>Flashcards, decks, scores, streaks, and settings are saved in your browser's local storage.</li>
+      <li>Files you import are read inside your browser and are never uploaded to a server.</li>
+      <li>There is no cloud copy, no account, and no way for us to retrieve your data.</li>
+    </ul>
+    <p>The flip side is worth knowing: because there is no account, clearing your browser's site data deletes your work permanently, and we cannot restore it. Apps that offer a backup or export give you a file you control — keep it somewhere safe, since it is not encrypted.</p>
+
+    <h2>Analytics</h2>
+    <p>Geography Gym and Mapdle count page visits using <a href="https://umami.is/">Umami</a>, so we can tell which games are actually played and which puzzles people finish. Umami is built for this purpose and, according to its documentation, sets no cookies and collects no personal data. What it reports to us is aggregate: how many visits a page got, roughly where in the world they came from, and what kind of device and browser was used.</p>
+    <p>We cannot see who you are, what you guessed, or how you did. We do not combine this with anything else, and we do not follow you to other websites.</p>
+    <p>Flashcard Flurry and Analog Math Clock have no analytics or tracking scripts at all.</p>
+
+    <h2>Feedback you send us</h2>
+    <p>If you send feedback through a form or a GitHub issue, we receive what you choose to type. GitHub issues are public, so please do not paste anything private into one — a backup file, for instance, or a deck you would not want read. A feedback form sent through Google is handled under <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+
+    <h2>What we never do</h2>
+    <ul>
+      <li>We do not sell, rent, or share your data. There is nothing to sell.</li>
+      <li>We show no advertising and carry no advertising identifiers.</li>
+      <li>We do not build profiles of you, and we do not track you across websites.</li>
+      <li>We do not require an account, an email address, or a name to use any app.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>Several of these apps are useful to children, and they are built the same way for everyone: no account, no sign-up, and no personal information requested from anyone, of any age. Because we do not collect personal information, we do not knowingly collect it from children either. A parent or teacher who has questions can write to us at the address below.</p>
+
+    <h2>Links to other sites</h2>
+    <p>This site links out to the apps and occasionally to other websites, such as a reference page about a place in Mapdle. Once you follow a link, you are on someone else's site under their policy, not ours.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the date at the top changes with it. If a change is significant — if we ever started collecting something we do not collect today — we would say so on the site rather than quietly editing this page.</p>
+
+    <div class="contact">
+      <h2 style="border:0; padding-top:0; margin-top:0">Contact</h2>
+      <p>Questions about privacy, or about anything else:</p>
+      <p class="addr">contact@brainbenchapps.com</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p class="legal">© 2026 Brain Bench Apps · brainbenchapps.com</p>
+    </div>
+    <div class="foot-links">
+      <a href="https://flashcardflurry.com/">Flashcard Flurry</a>
+      <a href="https://geographygym.com/">Geography Gym</a>
+      <a href="https://analogmathclock.com/">Analog Math Clock</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+</footer>
