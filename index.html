@@ -117,36 +117,29 @@
   .wordmark {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: -0.015em;
+    font-size: 1.42rem;
+    letter-spacing: -0.02em;
     text-decoration: none;
     margin-right: auto;
   }
   .wordmark .dot { color: var(--accent); }
-  .site-nav { display: flex; gap: 20px; font-size: 0.88rem; }
+  .site-nav { display: flex; gap: 22px; font-size: 0.95rem; }
   .site-nav a { color: var(--ink-soft); text-decoration: none; }
   .site-nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 
   /* ---- hero ---- */
   .hero .wrap {
-    padding-block: clamp(40px, 7vw, 72px) 40px;
+    padding-block: clamp(52px, 9vw, 96px) 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .hero .mascot {
-    width: clamp(92px, 16vw, 132px);
-    height: auto;
-    aspect-ratio: 1;
-    border-radius: 24%;
-    display: block;
-  }
-  .hero .eyebrow { margin-top: 22px; }
+  .hero .eyebrow { font-size: 0.8rem; margin-top: 0; }
   .hero h1 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(1.95rem, 5.2vw, 3.35rem);
+    font-size: clamp(2.02rem, 6.4vw, 4.1rem);
     line-height: 1.06;
     letter-spacing: -0.022em;
     text-wrap: balance;
@@ -155,8 +148,8 @@
   }
   .hero h1 .soft { color: var(--ink-soft); }
   .hero p.lead {
-    font-size: clamp(1.1rem, 2.4vw, 1.3rem);
-    line-height: 1.55;
+    font-size: clamp(1.18rem, 2.7vw, 1.45rem);
+    line-height: 1.5;
     color: var(--ink-soft);
     max-width: 48ch;
     margin: 22px 0 0;
@@ -534,7 +527,6 @@
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <img class="mascot" src="icons/icon.svg" alt="The Brain Bench Apps octopus" width="132" height="132">
       <p class="eyebrow">Independent app studio · Since 2026</p>
       <h1>Learn, practice, play.<br><span class="soft">Give your brain a workout.</span></h1>
       <p class="lead">Free apps that add to your home screen and keep working offline. <strong>No accounts, no ads</strong>, and your cards, scores, and settings stay on your device.</p>
@@ -666,7 +658,7 @@
       </div>
 
       <aside class="creator">
-        <img src="joe.png" alt="Joe at his desk, rendered in claymation, with Mapdle open on the monitor">
+        <img src="joe.jpg" alt="Joe at his desk, rendered in claymation, with Mapdle open on the monitor">
         <h3>Joe Lurie</h3>
         <p class="role">Creator of Brain Bench Apps</p>
         <ul>
